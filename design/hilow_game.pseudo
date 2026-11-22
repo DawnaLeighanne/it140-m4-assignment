@@ -8,22 +8,50 @@
 # Your finished pseudocode should address every requirement in the
 # current Module Four Assignment Guidelines and Rubric.
 
-START hilow_game
+START Dawna_lucky_number
 
     # Establish a valid guessing range.
-    TODO: Obtain the lower and upper bounds.
-    TODO: Repeat as needed until the bounds satisfy the requirement.
+    OUTPUT "Enter the lower bound:"
+    INPUT lower_bound
+    OUTPUT "Enter the upper bound:"
+    INPUT upper_bound
+
+    WHILE lower_bound >= upper_bound
+        OUTPUT "The lower bound must be less than the upper bound."
+        OUTPUT "Enter the lower bound:"
+        INPUT lower_bound
+        OUTPUT "Enter the upper bound:"
+        INPUT upper_bound
+    END WHILE
 
     # Establish the number the player is trying to guess.
-    TODO: Generate the required random number from the valid range.
+    SET random_number = RANDOM number between lower_bound and upper_bound
 
     # Play the game.
-    TODO: Obtain and validate a guess using the selected bounds.
-    TODO: Repeat the required game behavior until the correct guess.
-        TODO: Compare a valid guess and provide the required feedback.
-        TODO: Obtain and validate another guess when play continues.
+    OUTPUT "Guess a number between the lower and upper bounds:"
+    INPUT guess
 
-END hilow_game
+    WHILE guess < lower_bound OR guess > upper_bound 
+        OUTPUT "Please enter a number within the lower and upper bounds."
+        INPUT guess
+END WHILE
 
-# === References ===
-# TODO: Add references for sources you used, or delete this line if unused.
+WHILE guess != random_number
+    If guess < random_number
+        OUTPUT "Nope, too low."
+    ELSE
+        OUTPUT "Nope, too high."
+    END IF
+    OUTPUT "Guess another number:"
+    INPUT guess
+    WHILE guess < lower_bound OR guess > upper_bound
+        OUTPUT "Please enter a number within the lower and upper bounds."
+        INPUT guess
+    END WHILE
+END WHILE
+
+OUTPUT "You got it!"
+
+# AI Acknowledgment: I used Microsoft Copilot as a learning aid to help explain pseudocode concepts, understand loops and decision branching, and review my completed pseudocode.
+
+END Dawna_lucky_number
